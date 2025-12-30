@@ -1,12 +1,46 @@
-import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-
-const routes: RouteRecordRaw[] = [
-  // 其他路由配置
-]
+import { createRouter, createWebHashHistory, type RouteRecordRaw } from "vue-router";
+export const routes: RouteRecordRaw[] = [
+  // 根路由
+  {
+    path: "/",
+    redirect: "index",
+    hidden: true
+  },
+  {
+    path: "/index",
+    name: "index",
+    hidden: true,
+    component: () => import("../views/index/Index.vue")
+  },
+  {
+    path: "/transTemplate",
+    name: "transTemplate",
+    hidden: true,
+    component: () => import("../views/transTemplate/TransTemplate.vue")
+  },
+  {
+    path: "/transProgress",
+    name: "transProgress",
+    hidden: true,
+    component: () => import("../views/transProgress/TransProgress.vue")
+  },
+  {
+    path: "/trash",
+    name: "trash",
+    hidden: true,
+    component: () => import("../views/trash/trash.vue")
+  },
+  {
+    path: "/videoPreview",
+    name: "videoPreview",
+    hidden: true,
+    component: () => import("../views/preview/VideoPreview.vue")
+  },
+];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-})
+  history: createWebHashHistory(),
+  routes
+});
 
-export default router
+export default router;
